@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Keg } from './keg.model';
 
 @Component({
   selector: 'app-root',
@@ -6,9 +7,17 @@ import { Component } from '@angular/core';
   <div class="jumbotron">
     <h1>Tap Room</h1>
   </div>
+  <new-keg (newKegSender)="addKeg($event)"></new-keg>
+  <keg-list [childKegList]="kegList"></keg-list>
   `
 })
 
 export class AppComponent {
+
+  kegList: Keg[] = [];
+
+  addKeg(newKegFromChild: Keg) {
+    this.kegList.push(newKegFromChild)
+  }
 
 }
