@@ -6,7 +6,7 @@
     "Christian Martinez <cgmartinez11142@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/christiangmartinez/angular-tap-room",
   "ignore": [
     "**/.*",
     "node_modules",
