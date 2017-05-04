@@ -1,10 +1,12 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Keg } from './keg.model';
 
 @Component({
   selector: 'new-keg',
   template: `
-    <div class="well">
+
+    <button (click)="addingKeg = !addingKeg">Add New Keg</button>
+    <div *ngIf="addingKeg" class="well">
       <div>
         <label>Beer name</label>
         <input #newName class="form-control">
@@ -19,14 +21,18 @@ import { Keg } from './keg.model';
         <button (click)="submitForm(newName.value, newBrewery.value, newType.value, newPintPrice.value, newAbv.value); newName.value=''; newBrewery.value=''; newType.value=''; newPintPrice.value=''; newAbv.value=''">Add Keg</button>
       </div>
     </div>
+
   `
 })
 
 export class NewKegComponent {
   @Output() newKegSender = new EventEmitter();
 
+  addingKeg: boolean = false;
+
   submitForm(name: string, brewery: string, type: string, price: number, abv: number) {
     var newKeg: Keg = new Keg(name, brewery, type, price, abv);
     this.newKegSender.emit(newKeg);
   }
+
 }
