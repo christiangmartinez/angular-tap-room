@@ -5,7 +5,15 @@ import { Keg } from './keg.model';
   selector: 'keg-list',
   template: `
     <ul>
-      <li *ngFor="let currentKeg of childKegList">{{currentKeg.name}}</li>
+      <li *ngFor="let currentKeg of childKegList">
+        {{currentKeg.name}}
+        <ul>
+          <li>{{"$ " + currentKeg.price}}</li>
+          <li>{{currentKeg.brewery}}</li>
+          <li>{{currentKeg.type}}</li>
+          <li>{{currentKeg.abv + "%"}}</li>
+        </ul>
+      </li>
     <ul>
   `
 })

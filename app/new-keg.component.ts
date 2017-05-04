@@ -5,7 +5,7 @@ import { Keg } from './keg.model';
   selector: 'new-keg',
   template: `
     <div class="well">
-      <form>
+      <div>
         <label>Beer name</label>
         <input #newName class="form-control">
         <label>Beer brewery</label>
@@ -16,8 +16,8 @@ import { Keg } from './keg.model';
         <input #newPintPrice class="form-control">
         <label>ABV</label>
         <input #newAbv class="form-control">
-        <button (click)="submitForm(newName.value, newBrewery.value, newPintPrice.value, newAbv.value);">Add Keg</button>
-      </form>
+        <button (click)="submitForm(newName.value, newBrewery.value, newType.value, newPintPrice.value, newAbv.value); newName.value=''; newBrewery.value=''; newType.value=''; newPintPrice.value=''; newAbv.value=''">Add Keg</button>
+      </div>
     </div>
   `
 })

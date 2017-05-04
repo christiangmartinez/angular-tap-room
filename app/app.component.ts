@@ -16,8 +16,8 @@ export class AppComponent {
 
   kegList: Keg[] = [];
 
-  addKeg(newKegFromChild: Keg) {
-    this.kegList.push(newKegFromChild)
+  addKeg(newKeg: Keg) {
+    this.kegList.push(newKeg)
   }
 
 }
